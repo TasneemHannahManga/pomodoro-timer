@@ -45,6 +45,11 @@ function App() {
     setPage(!page);
   }
 
+  preload(`"${backgrounds[backgroundOrder].source}"`, {
+    as: "image",
+    imageSrcSet: `"${backgrounds[backgroundOrder].lowres}, ${backgrounds[backgroundOrder].source}"`,
+  });
+
   return (
     <div
       className="app-container"
