@@ -5,6 +5,7 @@ import { useState } from "react";
 import "./main.css";
 import Focus from "./pages/focus/Focus";
 import About from "./pages/about/About";
+import { preload } from "react-dom";
 
 function App() {
   const [backgroundOrder, setBackground] = useState(0);
