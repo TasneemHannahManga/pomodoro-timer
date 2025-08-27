@@ -5,12 +5,10 @@ import { useState } from "react";
 import "./main.css";
 import Focus from "./pages/focus/Focus";
 import About from "./pages/about/About";
-import { preload } from "react-dom";
-
 function App() {
   const [backgroundOrder, setBackground] = useState(0);
   const [isFullscreen, setFullscreen] = useState(false);
-  var elem = document.documentElement;
+  const elem = document.documentElement;
   const [page, setPage] = useState(true);
 
   function openFullscreen() {
@@ -39,17 +37,17 @@ function App() {
   }
 
   function ChangeBackground() {
-    backgroundOrder < 3 ? setBackground(backgroundOrder + 1) : setBackground(0);
+    setBackground((backgroundOrder + 1) % backgrounds.length);
   }
 
   function togglePage() {
     setPage(!page);
   }
 
-  preload(`"${backgrounds[backgroundOrder].source}"`, {
-    as: "image",
-    imageSrcSet: `"${backgrounds[backgroundOrder].lowres}, ${backgrounds[backgroundOrder].source}"`,
-  });
+  useEffect(() => {
+    const img = new Image();
+    img.src = backgrounds[backgroundOrder].source;
+  }, [backgroundOrder]);
 
   return (
     <div
@@ -67,7 +65,7 @@ function App() {
       />
       {page ? <Focus /> : <About />}
       <Footer
-        attrributionLink={backgrounds[backgroundOrder].link}
+        attributionLink={backgrounds[backgroundOrder].link}
         attributionText={backgrounds[backgroundOrder].attribution}
       />
     </div>
