@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import "./main.css";
 import Focus from "./pages/focus/Focus";
 import About from "./pages/about/About";
+
 function App() {
   const [backgroundOrder, setBackground] = useState(0);
   const [isFullscreen, setFullscreen] = useState(false);
