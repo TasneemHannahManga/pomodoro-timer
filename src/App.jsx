@@ -1,9 +1,9 @@
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import backgrounds from "./backgrounds";
 import { useState } from "react";
 import "./main.css";
-import Focus from "./pages/focus/focus";
+import Focus from "./pages/focus/Focus";
 import About from "./pages/about/About";
 
 function App() {
